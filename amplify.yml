@@ -11,9 +11,9 @@ frontend:
         - npm install -g lerna
         - npm install -g @sanity/cli
         - npm ci
-        - cd studio
-        - npm ci
-        - cd ..
+#        - cd studio
+#        - npm ci
+#        - cd ..
     build:
       commands:
         - npm run build
