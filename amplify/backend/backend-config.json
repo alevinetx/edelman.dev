@@ -5,5 +5,19 @@
       "type": "cicd",
       "lastPushTimeStamp": "2021-02-24T19:24:04.727Z"
     }
+  },
+  "auth": {
+    "edelmandev640ea7e5": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "analytics": {
+    "edelmandev": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

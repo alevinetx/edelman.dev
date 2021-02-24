@@ -1,0 +1,21 @@
+{
+    "appName": "edelmandev",
+    "roleName": "pinpointLambdaRolebc4e4312",
+    "cloudformationPolicyName": "cloudformationPolicybc4e4312",
+    "cloudWatchPolicyName": "cloudWatchPolicybc4e4312",
+    "pinpointPolicyName": "pinpointPolicybc4e4312",
+    "authPolicyName": "pinpoint_amplify_bc4e4312",
+    "unauthPolicyName": "pinpoint_amplify_bc4e4312",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
