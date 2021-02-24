@@ -10,8 +10,7 @@ frontend:
       commands:
          - nvm install
          - nvm use
-         - npm install -g npm
-         - npm install --legacy-peer-deps
+         - npm install
          - amplify pull
     build:
       commands:
