@@ -11,7 +11,10 @@ frontend:
 #        - npm install -g lerna
 #        - npm install -g @sanity/cli
 #        - npm install --save-dev typescript @types/node
+         - npm install -g npm
          - npm install --legacy-peer-deps
+         - amplify pull
+
 #        - cd studio
 #        - npm ci
 #        - cd ..
