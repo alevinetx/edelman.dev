@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import Amplify, { Analytics } from "aws-amplify";
-import awsExports from "../src/aws-exports";
+//@ts-ignore
+import awsExports from "../../src/aws-exports";
 import { useEffect } from "react";
 
 Amplify.configure({ ...awsExports, ssr: true });
