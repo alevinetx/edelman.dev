@@ -14,7 +14,6 @@ frontend:
          - cd studio
          - npm ci
          - cd ..
-         - amplify pull
     build:
       commands:
         - nvm install
