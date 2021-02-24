@@ -12,9 +12,7 @@ frontend:
          - nvm use
          - npm install -g @sanity/cli
          - npm install
-         - cd studio
-         - npm install
-         - cd ..
+         - npx lerna bootstrap
     build:
       commands:
 #        - nvm install
