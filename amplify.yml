@@ -10,7 +10,10 @@ frontend:
       commands:
          - nvm install
          - nvm use
-         - npm install
+         - npm ci
+         - cd studio
+         - npm ci
+         - cd ..
          - amplify pull
     build:
       commands:
