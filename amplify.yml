@@ -19,6 +19,7 @@ frontend:
       commands:
 #        - nvm install
         - nvm use
+        - npm ci
         - npm run build
   artifacts:
     baseDirectory: out
