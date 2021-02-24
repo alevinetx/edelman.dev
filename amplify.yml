@@ -19,7 +19,8 @@ frontend:
       commands:
 #        - nvm install
         - nvm use
-        - npm ci
+        - npm install
+        - npx lerna bootstrap
         - npm run build
   artifacts:
     baseDirectory: out
