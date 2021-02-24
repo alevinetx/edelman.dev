@@ -10,7 +10,7 @@ frontend:
       commands:
          - nvm install
          - nvm use
-         - npm ci
+         - npm ci --also=dev
          - npx lerna bootstrap
     build:
       commands:
