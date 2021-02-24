@@ -8,10 +8,10 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install -g lerna
-        - yarn
+#        - npm install -g lerna
+        - yarn install --frozen-lockfile
         - cd studio
-        - yarn
+        - yarn install --frozen-lockfile
         - cd ..
     build:
       commands:
