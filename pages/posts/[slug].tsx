@@ -1,0 +1,16 @@
+import { useRouter } from "next/router";
+
+export default function Post() {
+  const router = useRouter();
+  const { id } = router.query;
+
+  return <p>Post: {id}</p>;
+}
+
+// export async function getStaticProps({ params, preview = false }) {
+//   return {};
+// }
+
+// export async function getStaticPaths({}) {
+//   return {};
+// }
