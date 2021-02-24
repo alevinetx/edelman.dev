@@ -10,13 +10,14 @@ frontend:
       commands:
          - nvm install
          - nvm use
-         - npm ci
+         - npm install -g @sanity/cli
+         - npm install
          - cd studio
-         - npm ci
+         - npm install
          - cd ..
     build:
       commands:
-        - nvm install
+#        - nvm install
         - nvm use
         - npm run build
   artifacts:
