@@ -8,16 +8,11 @@ frontend:
   phases:
     preBuild:
       commands:
-#        - npm install -g lerna
-#        - npm install -g @sanity/cli
-#        - npm install --save-dev typescript @types/node
+         - nvm install
+         - nvm use
          - npm install -g npm
          - npm install --legacy-peer-deps
          - amplify pull
-
-#        - cd studio
-#        - npm ci
-#        - cd ..
     build:
       commands:
         - npm run build
