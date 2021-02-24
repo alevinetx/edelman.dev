@@ -28,8 +28,8 @@ frontend:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/*
-      - studio/node_modules/**/*
-      - .yarn/**/*
-      - .next/**/*
-      - .npm
+#      - node_modules/**/*
+#      - studio/node_modules/**/*
+#      - .yarn/**/*
+#      - .next/**/*
+#      - .npm
