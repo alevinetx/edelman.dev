@@ -10,9 +10,9 @@ frontend:
       commands:
         - npm install -g lerna
         - npm install -g @sanity/cli
-        - yarn install --frozen-lockfile
+        - yarn install
         - cd studio
-        - yarn install --frozen-lockfile
+        - yarn install
         - cd ..
     build:
       commands:
