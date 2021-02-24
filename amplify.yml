@@ -10,8 +10,7 @@ frontend:
       commands:
          - nvm install
          - nvm use
-         - npm install -g @sanity/cli
-         - npm install
+         - npm ci
          - npx lerna bootstrap
     build:
       commands:
@@ -26,8 +25,8 @@ frontend:
       - '**/*'
   cache:
     paths:
-#      - node_modules/**/*
-#      - studio/node_modules/**/*
-#      - .yarn/**/*
-#      - .next/**/*
-#      - .npm
+      - node_modules/**/*
+      - studio/node_modules/**/*
+      - .yarn/**/*
+      - .next/**/*
+      - .npm
