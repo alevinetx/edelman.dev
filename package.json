@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "yarn run build:sanity && pwd && yarn run build:web",
+    "build": "npm run build:sanity && pwd && npm run build:web",
     "build:web": "next build && next export",
     "start:web": "next start",
     "build:sanity": "cd studio && sanity build ../public/studio -y && cd ..",

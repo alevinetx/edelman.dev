@@ -10,13 +10,13 @@ frontend:
       commands:
         - npm install -g lerna
         - npm install -g @sanity/cli
-        - yarn install
+        - npm ci
         - cd studio
-        - yarn install
+        - npm ci
         - cd ..
     build:
       commands:
-        - yarn build
+        - npm run build
   artifacts:
     baseDirectory: out
     files:
@@ -24,5 +24,6 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+      - studio/node_modules/**/*
       - .yarn/**/*
       - .next/**/*
