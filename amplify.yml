@@ -11,13 +11,10 @@ frontend:
          - nvm install
          - nvm use
          - npm ci --also=dev
-         - npx lerna bootstrap
     build:
       commands:
-#        - nvm install
+        - nvm install
         - nvm use
-#        - npm install
-#        - npx lerna bootstrap
         - npm run build
   artifacts:
     baseDirectory: out

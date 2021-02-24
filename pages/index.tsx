@@ -1,7 +1,6 @@
 import { getAllPostsForHome } from "../lib/api";
 
 export default function Home({ allPosts, preview }) {
-  console.log(allPosts);
   return <div>Hello</div>;
 }
 
