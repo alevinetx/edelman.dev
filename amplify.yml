@@ -4,9 +4,9 @@ frontend:
     preBuild:
       commands:
         - yarn
-        - cd studio
-        - yarn
-        - cd ..
+#        - cd studio
+#        - yarn
+#        - cd ..
     build:
       commands:
         - yarn build
