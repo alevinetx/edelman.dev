@@ -3,13 +3,13 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        - yarn
         - cd studio
-        - npm ci
+        - yarn
         - cd ..
     build:
       commands:
-        - npm run build
+        - yarn build
   artifacts:
     baseDirectory: out
     files:
