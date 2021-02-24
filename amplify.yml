@@ -8,10 +8,10 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install -g lerna
-        - npm install -g @sanity/cli
-        - npm install --save-dev typescript @types/node
-        - npm ci
+#        - npm install -g lerna
+#        - npm install -g @sanity/cli
+#        - npm install --save-dev typescript @types/node
+        - npm install
 #        - cd studio
 #        - npm ci
 #        - cd ..
@@ -24,7 +24,8 @@ frontend:
       - '**/*'
   cache:
     paths:
-#      - node_modules/**/*
-#      - studio/node_modules/**/*
-#      - .yarn/**/*
-#      - .next/**/*
+      - node_modules/**/*
+      - studio/node_modules/**/*
+      - .yarn/**/*
+      - .next/**/*
+      - .npm
