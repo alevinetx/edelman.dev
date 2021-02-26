@@ -4,7 +4,10 @@ export default class MyDocument extends Document {
     render() {
         return (
             <Html lang="en">
-                <Head />
+                <Head>
+                    <link rel="webmention" href="https://webmention.io/edelman.dev/webmention" />
+                    <link rel="pingback" href="https://webmention.io/edelman.dev/xmlrpc" />
+                </Head>
                 <body>
                 <Main />
                 <NextScript />
