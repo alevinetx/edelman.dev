@@ -28,7 +28,6 @@ function RouteContainer(props: Props) {
 
 export async function getStaticPaths() {
   const allRoutes = await sanity.getAll("route");
-  console.log("all routes", allRoutes);
   return {
     paths:
       allRoutes?.map((route) => ({

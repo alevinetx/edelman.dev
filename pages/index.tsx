@@ -37,6 +37,8 @@ export default function Home({ allPosts, preview }: Props) {
             Michael Edelman
           </Heading>
           <Text as="p">Cloud Event Planner; Message Bus Driver</Text>
+          <a href="https://github.com/medelman17" rel="me">github.com/medelman17</a>
+
         </Stack>
       </Card>
       {renderPostList(allPosts)}
