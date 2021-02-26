@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/webhook/sanity-algolia-update",
+            "lambdaFunction": "edelmandevalgoliawebhook",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/webhook/sanity-algolia-update"
+        }
+    ],
+    "resourceName": "edelmandevapi",
+    "apiName": "edelmandevapi",
+    "functionArns": [
+        {
+            "lambdaFunction": "edelmandevalgoliawebhook"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-edelmandev-dev-142019-authRole",
+        "unAuthRoleName": "amplify-edelmandev-dev-142019-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "edelmandevalgoliawebhook",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

@@ -19,5 +19,29 @@
       "service": "Pinpoint",
       "providerPlugin": "awscloudformation"
     }
+  },
+  "function": {
+    "edelmandevalgoliawebhook": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": []
+    }
+  },
+  "api": {
+    "edelmandevapi": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "edelmandevalgoliawebhook",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
+    }
   }
 }

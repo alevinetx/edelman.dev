@@ -3,7 +3,7 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api";
 import Head from "next/head";
 import { useAmp } from "next/amp";
 
-export const config = { amp: true };
+export const config = { amp: "hybrid" };
 
 export default function Post() {
   const router = useRouter();
@@ -243,7 +243,7 @@ export async function getStaticProps({ params, preview = false }) {
       post: data?.post || null,
       morePosts: data?.morePosts || null,
     },
-    // revalidate: 1,
+    revalidate: 1,
   };
 }
 

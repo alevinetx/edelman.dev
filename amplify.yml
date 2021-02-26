@@ -10,12 +10,13 @@ frontend:
       commands:
          - nvm install
          - nvm use
-         - npm ci --also=dev
+         - yarn install --production=false --silent
+
     build:
       commands:
         - nvm install
         - nvm use
-        - npm run build
+        - yarn run build
   artifacts:
     baseDirectory: out
     files:

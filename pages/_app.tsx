@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import { studioTheme, ThemeProvider } from "@sanity/ui";
 import Amplify, { Analytics } from "aws-amplify";
 
 import awsExports from "../src/aws-exports";
@@ -11,7 +11,11 @@ function MyApp({ Component, pageProps }) {
     Analytics.record({ name: "pageView" });
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <ThemeProvider theme={studioTheme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }
 
 export default MyApp;

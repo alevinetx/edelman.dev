@@ -9,7 +9,14 @@ const awsmobile = {
     "aws_user_pools_web_client_id": "6pqmp5n7o8aovd1ka4lktblfbi",
     "oauth": {},
     "aws_mobile_analytics_app_id": "421fc4e0f2894e1fae945349fd72dbd2",
-    "aws_mobile_analytics_app_region": "us-east-1"
+    "aws_mobile_analytics_app_region": "us-east-1",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "edelmandevapi",
+            "endpoint": "https://fz8opgi7b5.execute-api.us-east-1.amazonaws.com/dev",
+            "region": "us-east-1"
+        }
+    ]
 };
 
 

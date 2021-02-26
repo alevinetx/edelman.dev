@@ -20,6 +20,12 @@
       },
       "auth": {
         "edelmandev640ea7e5": {}
+      },
+      "function": {
+        "edelmandevalgoliawebhook": {
+          "deploymentBucketName": "amplify-edelmandev-dev-142019-deployment",
+          "s3Key": "amplify-builds/edelmandevalgoliawebhook-5a344f77696464715463-build.zip"
+        }
       }
     }
   }
