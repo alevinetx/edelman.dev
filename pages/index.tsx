@@ -27,8 +27,7 @@ type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
 type Props = UnwrapPromise<ReturnType<typeof getStaticProps>>["props"];
 
 export default function Home({ allPosts, preview }: Props) {
-  console.log(allPosts);
-
+  
   return (
     <Container width={3}>
       <Card margin={3} padding={4}>
