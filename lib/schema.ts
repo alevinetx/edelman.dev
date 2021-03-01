@@ -219,16 +219,11 @@ export interface Post extends SanityDocument {
   author?: SanityReference<Author>;
 
   /**
-   * Main image — `image`
+   * Main image — `mainImage`
    *
    *
    */
-  mainImage?: {
-    _type: "image";
-    asset: SanityAsset;
-    crop?: SanityImageCrop;
-    hotspot?: SanityImageHotspot;
-  };
+  mainImage?: MainImage;
 
   /**
    * Categories — `array`
