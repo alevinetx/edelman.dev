@@ -46,6 +46,8 @@ const useBlogPostData = createDataHook("BlogPost", async (context) => {
     ogImages: [ogImage],
     canonical: `https://edelman.dev/blog/${post.slug.current}/`,
     tags: cats.map((cat) => cat.title),
+    publishedAt: post._createdAt,
+    updatedAt: post._updatedAt,
   };
 
   return {
@@ -69,11 +71,11 @@ function BlogPost() {
         url={data.seo.canonical}
         title={data.seo.title}
         images={data.seo.ogImages.map((img) => img.url)}
-        // datePublished={}
+        datePublished={data.seo.publishedAt}
         authorName={["Michael Edelman"]}
         description={data.seo.description}
-        // publisherName={}
-        // publisherLogo={}
+        publisherName={"EdelmanDev"}
+        publisherLogo={"https://edelman.dev/android-chrome-512x512.png"}
       />
       <NextSeo
         title={data.seo.title}
