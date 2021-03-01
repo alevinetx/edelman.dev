@@ -29,7 +29,7 @@ const useBlogPostData = createDataHook("BlogPost", async (context) => {
     cats.push(expCat);
   }
 
-  // console.log("props", settings, post, author, cats);
+  console.log("props", settings, post, author, cats);
 
   const ogImage = {
     url: builder.image(post.mainImage).width(800).height(600).url(),
