@@ -1,0 +1,7 @@
+{
+    "tableName": "edelmandevdynostore",
+    "partitionKeyName": "pk",
+    "partitionKeyType": "S",
+    "sortKeyName": "sk",
+    "sortKeyType": "S"
+}

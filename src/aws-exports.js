@@ -16,6 +16,13 @@ const awsmobile = {
             "endpoint": "https://fz8opgi7b5.execute-api.us-east-1.amazonaws.com/dev",
             "region": "us-east-1"
         }
+    ],
+    "aws_dynamodb_all_tables_region": "us-east-1",
+    "aws_dynamodb_table_schemas": [
+        {
+            "tableName": "edelmandevdynostore-dev",
+            "region": "us-east-1"
+        }
     ]
 };
 

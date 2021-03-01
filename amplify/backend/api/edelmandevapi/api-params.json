@@ -7,6 +7,14 @@
                 "open": true
             },
             "policyResourceName": "/webhook/sanity-algolia-update"
+        },
+        {
+            "name": "/webhook/webmention",
+            "lambdaFunction": "edelmandevwebmentionhook",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/webhook/webmention"
         }
     ],
     "resourceName": "edelmandevapi",
@@ -14,6 +22,9 @@
     "functionArns": [
         {
             "lambdaFunction": "edelmandevalgoliawebhook"
+        },
+        {
+            "lambdaFunction": "edelmandevwebmentionhook"
         }
     ],
     "privacy": {
@@ -30,6 +41,15 @@
                 "Name",
                 "Arn"
             ]
+        },
+        {
+            "category": "function",
+            "resourceName": "edelmandevwebmentionhook",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
         }
-    ]
+    ],
+    "uuid": "78f3f4f5"
 }

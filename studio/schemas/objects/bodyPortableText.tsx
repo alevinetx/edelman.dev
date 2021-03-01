@@ -73,6 +73,7 @@ export default {
     // { type: 'instagram' },
     { type: "videoEmbed" },
     { type: "embedHTML" },
+    { type: "code" },
     // { type: "math", icon: mathIcon, title: "Math block" },
   ],
 };

@@ -245,11 +245,11 @@ export interface Post extends SanityDocument {
   publishedAt?: string;
 
   /**
-   * Body — `blockContent`
+   * Body — `bodyPortableText`
    *
    *
    */
-  body?: BlockContent;
+  body?: BodyPortableText;
 }
 
 /**
@@ -518,6 +518,7 @@ export type BodyPortableText = Array<
   | SanityKeyed<MainImage>
   | SanityKeyed<VideoEmbed>
   | SanityKeyed<EmbedHTML>
+  | SanityKeyed<Code>
 >;
 
 export type BlockContent = Array<
@@ -799,3 +800,10 @@ export type Documents =
  * sanity-codegen will let you type this explicity.
  */
 type Color = any;
+
+/**
+ * This interface is a stub. It was referenced in your sanity schema but
+ * the definition was not actually found. Future versions of
+ * sanity-codegen will let you type this explicity.
+ */
+type Code = any;

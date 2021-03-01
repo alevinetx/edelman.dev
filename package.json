@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "npx sanity-codegen && next",
     "build": "yarn run build:sanity && pwd && yarn run build:web",
     "build:web": "npx sanity-codegen && next build && next export",
     "start:web": "next start",
     "build:sanity": "cd studio  && sanity build ../public/studio -y && cd ..",
     "start:sanity": "cp .env ./studio/.env.development && cd studio && sanity start",
     "postinstall": "lerna bootstrap",
-    "amplify:edelmandevalgoliawebhook": "cd amplify/backend/function/edelmandevalgoliawebhook/src && yarn && tsc -p ./tsconfig.json && cd -"
+    "amplify:edelmandevalgoliawebhook": "cd amplify/backend/function/edelmandevalgoliawebhook/src && yarn && tsc -p ./tsconfig.json && cd -",
+    "amplify:edelmandevwebmentionhook": "cd amplify/backend/function/edelmandevwebmentionhook/src && yarn && tsc -p ./tsconfig.json && cd -"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^1.0.2",
@@ -18,12 +19,17 @@
     "@sanity/client": "^2.2.6",
     "@sanity/image-url": "^0.140.22",
     "@sanity/ui": "^0.33.6",
+    "antd": "^4.13.0",
     "aws-amplify": "^3.3.20",
     "next": "10.0.7",
+    "next-data-hooks": "^0.5.0",
     "next-sanity": "^0.1.10",
+    "next-sanity-image": "^1.0.1",
+    "next-seo": "^4.20.0",
     "node-fetch": "^2.6.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-syntax-highlighter": "^15.4.3",
     "styled-components": "^5.2.1",
     "theme-ui": "^0.3.5"
   },
