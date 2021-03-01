@@ -14,15 +14,18 @@ function urlFor(source) {
 
 const myLoader = (props) => {
   // console.log("loader props", props);
-  return `${props.src}&w=${props.width}`;
+  return `${props.src}&w=${props.width}q=50`;
 };
 
 export function Figure(props) {
-  urlFor(props.node);
   const { loader, ...rest } = useNextSanityImage(sanity, props.node);
-  // console.log(props);
 
   return (
-    <Img {...rest} loader={myLoader} sizes="(max-width: 800px) 100vw, 800px" />
+    <Img
+      {...rest}
+      loader={myLoader}
+      sizes="(max-width: 800px) 100vw, 800px"
+      alt={props.node.alt}
+    />
   );
 }

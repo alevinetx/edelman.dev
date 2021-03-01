@@ -5,6 +5,7 @@ import { Stack } from "@sanity/ui";
 import { serializers } from "../serializers";
 import { SimpleBlockContent } from "../../../components/SimpleBlockContent";
 import PostHeader from "./post-header";
+import Head from "next/head";
 
 const useBlogPostData = createDataHook("BlogPost", async (context) => {
   const settings = await sanity.get("site-config", "siteSettings");
@@ -26,6 +27,9 @@ function BlogPost() {
 
   return (
     <Layout config={data.settings || {}}>
+      <Head>
+        <title>{data.post.title}</title>
+      </Head>
       <Stack space={[3, 3, 4, 5]}>
         <PostHeader post={data.post} author={data.author} />
         <SimpleBlockContent blocks={data.post.body} serializers={serializers} />
