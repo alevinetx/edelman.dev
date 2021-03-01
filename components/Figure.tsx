@@ -11,5 +11,9 @@ function urlFor(source) {
 }
 
 export function Figure(props) {
-  return <img src={urlFor(props.node).url()} />;
+  return (
+    <img
+      src={urlFor(props.node).fit("crop").crop("entropy").width(800).url()}
+    />
+  );
 }
