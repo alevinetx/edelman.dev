@@ -8,7 +8,7 @@ import PostHeader from "./post-header";
 import Head from "next/head";
 import imageUrlBuilder from "@sanity/image-url";
 import simg from "../../../lib/sanity";
-import { NextSeo } from "next-seo";
+import { NextSeo, ArticleJsonLd } from "next-seo";
 import { blockContentToPlainText } from "react-portable-text";
 import { Category } from "../../../lib/schema";
 
@@ -65,6 +65,16 @@ function BlogPost() {
 
   return (
     <Layout config={data.settings || {}}>
+      <ArticleJsonLd
+        url={data.seo.canonical}
+        title={data.seo.title}
+        images={data.seo.ogImages.map((img) => img.url)}
+        // datePublished={}
+        authorName={["Michael Edelman"]}
+        description={data.seo.description}
+        // publisherName={}
+        // publisherLogo={}
+      />
       <NextSeo
         title={data.seo.title}
         titleTemplate={"Edelman | %s"}
