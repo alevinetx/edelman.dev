@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { NextDataHooksProvider } from "next-data-hooks";
 import "../styles/globals.css";
 
-Amplify.configure({ ...awsExports, ssr: true });
+// Amplify.configure({ ...awsExports, ssr: true });
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { children, ...rest } = pageProps;
