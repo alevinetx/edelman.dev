@@ -1,6 +1,9 @@
 import * as React from "react";
 import { Flex } from "@sanity/ui";
 import { SiteConfig, NavigationMenu } from "../lib/schema";
+import { Button } from "@sanity/ui";
+
+import { GoMarkGithub } from "react-icons/go";
 
 export interface FooterProps {
   navItems: SiteConfig["footerNavigation"];

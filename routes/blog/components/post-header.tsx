@@ -17,6 +17,7 @@ function BlogPostTitle(props) {
 }
 
 function BlogPostHeader(props: BlogPostHeaderProps) {
+  console.log("props.post", props.post);
   return (
     <Stack space={[3, 3, 4, 5]}>
       <BlogPostTitle title={props.post.title} />

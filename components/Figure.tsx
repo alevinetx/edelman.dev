@@ -13,8 +13,7 @@ function urlFor(source) {
 }
 
 const myLoader = (props) => {
-  // console.log("loader props", props);
-  return `${props.src}&w=${props.width}q=50`;
+  return `${props.src}&w=${props.width}&q=50`;
 };
 
 export function Figure(props) {

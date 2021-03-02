@@ -2,6 +2,8 @@ import { createDataHook } from "next-data-hooks";
 import sanity from "../../../lib/sanity-client";
 import { Layout } from "../../../components/Layout";
 
+import { Flex, Stack, Heading } from "@sanity/ui";
+
 import BlogPostCard, {
   BlogPostCardProps,
 } from "../../blog/components/blog-post-card";
@@ -21,11 +23,17 @@ function Home() {
 
   return (
     <Layout config={settings}>
-      <div>
-        {posts.map((post) => (
-          <BlogPostCard post={post} key={post._id} />
-        ))}
-      </div>
+      <Flex style={{ width: "100%" }}>
+        <Stack space={[4]}>
+          <Heading as={"h1"} size={5}>
+            Recent Posts
+          </Heading>
+          {posts.map((post) => (
+            <BlogPostCard post={post} key={post._id} />
+          ))}
+        </Stack>
+      </Flex>
+      <div></div>
     </Layout>
   );
 }
