@@ -5,6 +5,7 @@ import sanity from "../../lib/sanity-client";
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
   const allPosts = await sanity.getAll("post");
+  // console.log("allposts", allPosts, context);
   return {
     paths:
       allPosts.map((post) => ({

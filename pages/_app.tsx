@@ -16,11 +16,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { children, ...rest } = pageProps;
 
   return (
-    <ChakraProvider theme={theme}>
-      <NextDataHooksProvider {...rest}>
+    <NextDataHooksProvider {...rest}>
+      <ChakraProvider theme={theme}>
         <Component {...rest}>{children}</Component>
-      </NextDataHooksProvider>
-    </ChakraProvider>
+      </ChakraProvider>
+    </NextDataHooksProvider>
   );
 }
 

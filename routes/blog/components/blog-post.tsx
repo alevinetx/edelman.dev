@@ -10,6 +10,7 @@ import { NextSeo, ArticleJsonLd } from "next-seo";
 import { blockContentToPlainText } from "react-portable-text";
 import { Category } from "../../../lib/schema";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 
 const PostHeader = dynamic(() => import("./post-header"));
 
@@ -66,9 +67,15 @@ const useBlogPostData = createDataHook("BlogPost", async (context) => {
 function getPostTitle() {}
 
 function BlogPost() {
-  const data = useBlogPostData();
+  const router = useRouter();
 
   // console.log("data", data);
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
+  const data = useBlogPostData();
 
   return (
     <Layout config={data.settings || {}}>
