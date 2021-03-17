@@ -27,13 +27,13 @@ module.exports = {
       config.resolve.alias["@sentry/node"] = "@sentry/browser";
     }
 
-    config.plugins.push(
-      new options.webpack.DefinePlugin({
-        "process.env.NEXT_IS_SERVER": JSON.stringify(
-          options.isServer.toString()
-        ),
-      })
-    );
+    // config.plugins.push(
+    //   new options.webpack.DefinePlugin({
+    //     "process.env.NEXT_IS_SERVER": JSON.stringify(
+    //       options.isServer.toString()
+    //     ),
+    //   })
+    // );
 
     if (
       SENTRY_DSN &&
