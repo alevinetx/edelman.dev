@@ -3,6 +3,8 @@ env:
   variables:
     NEXT_PUBLIC_SANITY_DATASET: production
     NEXT_PUBLIC_SANITY_PROJECT_ID: 1os98t11
+    NEXT_PUBLIC_SENTRY_DSN: https://8031f4ed520b427088aec6d7ca3e8545@o553757.ingest.sentry.io/5681482
+
 
 frontend:
   phases:
