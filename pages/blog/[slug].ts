@@ -12,7 +12,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
           slug: post.slug.current,
         },
       })) || [],
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     context,
     dataHooks: BlogPost.dataHooks,
   });
-  return { props: dataHooksProps };
+  return { props: dataHooksProps, revalidate: 1 };
 };
 
 export default BlogPost;

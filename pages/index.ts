@@ -8,7 +8,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     context,
     dataHooks: Home.dataHooks,
   });
-  return { props: dataHookProps };
+  return { props: dataHookProps, revalidate: 1 };
 };
 
 export default Home;

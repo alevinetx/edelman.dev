@@ -13,7 +13,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
           slug: route.slug.current,
         },
       })) || [],
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     context,
     dataHooks: Page.dataHooks,
   });
-  return { props: dataHookProps };
+  return { props: dataHookProps, revalidate: 1 };
 };
 
 export default Page;
