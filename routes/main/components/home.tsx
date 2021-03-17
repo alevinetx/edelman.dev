@@ -2,7 +2,7 @@ import { createDataHook } from "next-data-hooks";
 import sanity from "../../../lib/sanity-client";
 import { Layout } from "../../../components/Layout";
 
-import { Flex, Stack, Heading } from "@sanity/ui";
+import { Flex, Stack, Heading } from "@chakra-ui/react";
 
 import BlogPostCard, {
   BlogPostCardProps,
@@ -25,7 +25,7 @@ function Home() {
     <Layout config={settings}>
       <Flex style={{ width: "100%" }}>
         <Stack space={[4]}>
-          <Heading as={"h1"} size={5}>
+          <Heading as={"h1"} size={"lg"}>
             Recent Posts
           </Heading>
           {posts.map((post) => (

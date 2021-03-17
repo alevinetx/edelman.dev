@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Author, Post } from "../../../lib/schema";
 import BlogAuthor from "./post-author";
-import { Stack, Heading, Box } from "@sanity/ui";
+import { Stack, Heading, Box } from "@chakra-ui/react";
 import { Figure } from "../../../components/Figure";
 export interface BlogPostHeaderProps {
   post: Post;
@@ -11,13 +11,13 @@ export interface BlogPostHeaderProps {
 function BlogPostTitle(props) {
   return (
     <Box>
-      <Heading size={5}>{props.title}</Heading>
+      <Heading size="2xl">{props.title}</Heading>
     </Box>
   );
 }
 
 function BlogPostHeader(props: BlogPostHeaderProps) {
-  console.log("props.post", props.post);
+  // console.log("props.post", props.post);
   return (
     <Stack space={[3, 3, 4, 5]}>
       <BlogPostTitle title={props.post.title} />

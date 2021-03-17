@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SiteConfig, NavigationMenu } from "../lib/schema";
-import { Container, Flex } from "@sanity/ui";
+import { Heading, Link, Flex } from "@chakra-ui/react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Content } from "./Content";
@@ -34,5 +34,15 @@ export function Layout(props) {
 }
 
 function SiteContainer(props) {
-  return <Flex direction={"column"}>{props.children}</Flex>;
+  return (
+    <Flex
+      direction="column"
+      align="center"
+      maxW={{ xl: "1200px" }}
+      m="0 auto"
+      {...props}
+    >
+      {props.children}
+    </Flex>
+  );
 }

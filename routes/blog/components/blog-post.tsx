@@ -1,7 +1,7 @@
 import { createDataHook } from "next-data-hooks";
 import sanity from "../../../lib/sanity-client";
 import { Layout } from "../../../components/Layout";
-import { Stack } from "@sanity/ui";
+import { Stack } from "@chakra-ui/react";
 import { serializers } from "../serializers";
 import { SimpleBlockContent } from "../../../components/SimpleBlockContent";
 import PostHeader from "./post-header";
@@ -29,7 +29,7 @@ const useBlogPostData = createDataHook("BlogPost", async (context) => {
     cats.push(expCat);
   }
 
-  console.log("props", settings, post, author, cats);
+  // console.log("props", settings, post, author, cats);
 
   const ogImage = {
     url: builder.image(post.mainImage).width(800).height(600).url(),
@@ -63,7 +63,7 @@ function getPostTitle() {}
 function BlogPost() {
   const data = useBlogPostData();
 
-  console.log("data", data);
+  // console.log("data", data);
 
   return (
     <Layout config={data.settings || {}}>

@@ -1,5 +1,5 @@
 import BlockContent from "@sanity/block-content-to-react";
-import { Heading, Text } from "@sanity/ui";
+import { Heading, Text } from "@chakra-ui/react";
 import { Code } from "../../components/Code";
 import { Figure } from "../../components/Figure";
 
@@ -7,19 +7,19 @@ export const BlockRenderer = (props) => {
   switch (props.node.style) {
     case "h1":
       return (
-        <Heading as={"h1"} size={4}>
+        <Heading as={"h1"} size={"xl"}>
           {props.children}
         </Heading>
       );
     case "h2":
       return (
-        <Heading as={"h2"} size={3}>
+        <Heading as={"h2"} size={"lg"}>
           {props.children}
         </Heading>
       );
     case "normal":
       return (
-        <Text size={2}>
+        <Text size={"lg"}>
           <p>{props.children}</p>
         </Text>
       );

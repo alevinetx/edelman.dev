@@ -1,14 +1,13 @@
 import * as React from "react";
 import {
   Container,
-  Card,
+  Box as Card,
   Grid,
   Heading,
   Stack,
   Text,
-  Inline,
   Flex,
-} from "@sanity/ui";
+} from "@chakra-ui/react";
 import { Figure } from "../../../components/Figure";
 import { Post } from "../../../lib/schema";
 import sanity from "../../../lib/sanity";
@@ -55,12 +54,12 @@ function BlogPostCard(props: BlogPostCardProps) {
         <Stack flex={2} style={{ minWidth: "300px" }} paddingX={[0, 0, 3]}>
           <Link href={`/blog/${props.post.slug.current}`}>
             <a>
-              <Heading as={"h1"} size={5}>
+              <Heading as={"h1"} size="lg">
                 {props.post.title}
               </Heading>
             </a>
           </Link>
-          <Text size={2}>
+          <Text size="lg">
             <p>{getExcerpt()}</p>
           </Text>
         </Stack>

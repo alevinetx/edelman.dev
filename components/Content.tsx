@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Flex } from "@sanity/ui";
+import { Flex } from "@chakra-ui/react";
 import { SiteConfig, NavigationMenu } from "../lib/schema";
 
 export interface ContentProps {

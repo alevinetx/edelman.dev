@@ -391,6 +391,50 @@ export interface Author extends SanityDocument {
   bio?: Array<SanityKeyed<SanityBlock>>;
 }
 
+/**
+ * How-To
+ *
+ *
+ */
+export interface Howto extends SanityDocument {
+  _type: "howto";
+
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Slug — `slug`
+   *
+   *
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
+   * Main image — `mainImage`
+   *
+   *
+   */
+  mainImage?: MainImage;
+
+  /**
+   * Description — `simplePortableText`
+   *
+   *
+   */
+  description?: SimplePortableText;
+
+  /**
+   * Steps — `array`
+   *
+   *
+   */
+  step?: Array<SanityKeyed<HowtoStep>>;
+}
+
 export type OpenGraph = {
   _type: "openGraph";
   /**
@@ -559,6 +603,31 @@ export type PortableText = Array<
 >;
 
 export type ExcerptPortableText = Array<SanityKeyed<SanityBlock>>;
+
+export type HowtoStepPortableText = Array<
+  | SanityKeyed<SanityBlock>
+  | SanityKeyed<MainImage>
+  | SanityKeyed<VideoEmbed>
+  | SanityKeyed<EmbedHTML>
+  | SanityKeyed<Code>
+>;
+
+export type HowtoStep = {
+  _type: "howtoStep";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Body — `howtoStepPortableText`
+   *
+   *
+   */
+  body?: HowtoStepPortableText;
+};
 
 export type Hero = {
   _type: "hero";
@@ -787,7 +856,8 @@ export type Documents =
   | NavigationMenu
   | Page
   | Category
-  | Author;
+  | Author
+  | Howto;
 
 /**
  * This interface is a stub. It was referenced in your sanity schema but
