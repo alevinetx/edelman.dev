@@ -10,14 +10,14 @@ frontend:
   phases:
     preBuild:
       commands:
-         - nvm install
-         - nvm use
+#         - nvm install
+#         - nvm use
          - yarn install --production=false --silent
 
     build:
       commands:
-        - nvm install
-        - nvm use
+#        - nvm install
+#        - nvm use
         - yarn run build
   artifacts:
     baseDirectory: .next
