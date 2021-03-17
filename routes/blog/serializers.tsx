@@ -1,7 +1,11 @@
 import BlockContent from "@sanity/block-content-to-react";
 import { Heading, Text } from "@chakra-ui/react";
-import { Code } from "../../components/Code";
-import { Figure } from "../../components/Figure";
+// import { Code } from "../../components/Code";
+// import { Figure } from "../../components/Figure";
+import dynamic from "next/dynamic";
+
+const Code = dynamic(() => import("../../components/Code"));
+const Figure = dynamic(() => import("../../components/Figure"));
 
 export const BlockRenderer = (props) => {
   switch (props.node.style) {

@@ -21,3 +21,5 @@ export function SimpleBlockContent(props) {
     />
   );
 }
+
+export default SimpleBlockContent;

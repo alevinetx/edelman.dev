@@ -3,14 +3,19 @@ import sanity from "../../../lib/sanity-client";
 import { Layout } from "../../../components/Layout";
 import { Stack } from "@chakra-ui/react";
 import { serializers } from "../serializers";
-import { SimpleBlockContent } from "../../../components/SimpleBlockContent";
-import PostHeader from "./post-header";
-import Head from "next/head";
+// import Head from "next/head";
 import imageUrlBuilder from "@sanity/image-url";
 import simg from "../../../lib/sanity";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import { blockContentToPlainText } from "react-portable-text";
 import { Category } from "../../../lib/schema";
+import dynamic from "next/dynamic";
+
+const PostHeader = dynamic(() => import("./post-header"));
+
+const SimpleBlockContent = dynamic(
+  () => import("../../../components/SimpleBlockContent")
+);
 
 const builder = imageUrlBuilder(simg);
 

@@ -42,3 +42,5 @@ export function Figure(props) {
     />
   );
 }
+
+export default Figure;

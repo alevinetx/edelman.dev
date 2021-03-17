@@ -11,3 +11,5 @@ export function Code({ node }) {
     <SyntaxHighlighter language={language || "text"}>{code}</SyntaxHighlighter>
   );
 }
+
+export default Code;
