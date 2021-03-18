@@ -8,9 +8,18 @@ import Head from "next/head";
 
 export interface LayoutProps {
   config: SiteConfig;
+  children: React.ReactNode;
 }
 
-export function Layout(props) {
+export function Layout(props: LayoutProps) {
+  const [doShowMobileNavigationMenu, setMobileNavigationMenu] = React.useState(
+    false
+  );
+
+  const toggleMobileNavigationMenu = (e: React.SyntheticEvent) => {
+    setMobileNavigationMenu(() => !doShowMobileNavigationMenu);
+  };
+
   return (
     <>
       <Head>
@@ -21,7 +30,12 @@ export function Layout(props) {
       </Head>
 
       <SiteContainer>
-        <Header title={props.config.title} navItems={props.config.navItems} />
+        <Header
+          navItems={props.config.mainNavigation}
+          doShowMobileNavigationMenu={doShowMobileNavigationMenu}
+          toggleMobileNavigationMenu={toggleMobileNavigationMenu}
+          titleText={props.config.title}
+        />
         <Content>{props.children}</Content>
 
         <Footer
