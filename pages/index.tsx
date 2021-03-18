@@ -1,5 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { getDataHooksProps } from "next-data-hooks";
+import * as Sentry from "@sentry/react";
 
 import Home from "../routes/main/components/home";
 
@@ -8,7 +9,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     context,
     dataHooks: Home.dataHooks,
   });
-  return { props: dataHookProps, revalidate: 1 };
+  return { props: dataHookProps };
 };
 
-export default Home;
+export default Sentry.withProfiler(Home);
