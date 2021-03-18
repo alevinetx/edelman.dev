@@ -78,7 +78,7 @@ function BlogPost() {
   const data = useBlogPostData();
 
   return (
-    <Layout config={data.settings || {}}>
+    <Layout config={data.settings}>
       <ArticleJsonLd
         url={data.seo.canonical}
         title={data.seo.title}
