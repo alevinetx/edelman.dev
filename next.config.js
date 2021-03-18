@@ -17,7 +17,7 @@ process.env.SENTRY_DSN = SENTRY_DSN;
 const basePath = "";
 
 module.exports = {
-  trailingSlash: true,
+  // trailingSlash: true,
   productionBrowserSourceMaps: true,
   images: {
     domains: ["cdn.sanity.io"],
