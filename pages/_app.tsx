@@ -6,6 +6,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { NextDataHooksProvider } from "next-data-hooks";
 import { init } from "../lib/sentry";
 import theme from "../lib/theme";
+import Head from "next/head";
 import awsExports from "../src/aws-exports";
 
 // Amplify.configure({ ...awsExports, ssr: true });
@@ -35,11 +36,23 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { children, ...rest } = pageProps;
 
   return (
-    <NextDataHooksProvider {...rest}>
-      <ChakraProvider theme={theme}>
-        <Component {...rest}>{children}</Component>
-      </ChakraProvider>
-    </NextDataHooksProvider>
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#317EFB" />
+      </Head>
+      <NextDataHooksProvider {...rest}>
+        <ChakraProvider theme={theme}>
+          <Component {...rest}>{children}</Component>
+        </ChakraProvider>
+      </NextDataHooksProvider>
+    </>
   );
 }
 

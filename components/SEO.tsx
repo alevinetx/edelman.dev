@@ -60,10 +60,11 @@ export function SEO(props: SEOProps) {
     <>
       <Head>
         <html lang="en" />
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width, viewport-fit=cover"
-        />
+
+        {/*<meta*/}
+        {/*  name="viewport"*/}
+        {/*  content="initial-scale=1.0, width=device-width, viewport-fit=cover"*/}
+        {/*/>*/}
       </Head>
       <ArticleJsonLd
         url={canonical}
