@@ -1,6 +1,6 @@
 const SentryWebpackPlugin = require("@sentry/webpack-plugin");
-const withPWA = require("next-pwa");
-const runtimeCaching = require("next-pwa/cache");
+// const withPWA = require("next-pwa");
+// const runtimeCaching = require("next-pwa/cache");
 
 const {
   NEXT_PUBLIC_SENTRY_DSN: SENTRY_DSN,
@@ -15,12 +15,9 @@ const COMMIT_SHA = process.env.AWS_COMMIT_ID;
 process.env.SENTRY_DSN = SENTRY_DSN;
 const basePath = "";
 
-module.exports = withPWA({
+module.exports = {
   // trailingSlash: true,
-  pwa: {
-    dest: "public",
-    runtimeCaching,
-  },
+
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   images: {
@@ -60,4 +57,4 @@ module.exports = withPWA({
     }
     return config;
   },
-});
+};
