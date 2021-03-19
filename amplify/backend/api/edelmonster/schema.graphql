@@ -1,0 +1,55 @@
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+
+enum WebMentionType {
+  InReplyTo
+  LikeOf
+  RepostOf
+  BookmarkOf
+  MentionOf
+  RSVP
+}
+
+type WebMentionEvent
+@model
+@key(fields: ["targetId", "type", "createdAt"])
+@key(
+  name: "webMentionEventsByTarget"
+  fields: ["target", "createdAt"]
+  queryField: "webMentionEventsByTarget"
+)
+@key(
+  name: "webMentionEventsByType"
+  fields: ["type","createdAt"]
+  queryField: "webMentionEventsByType"
+)
+@key(
+  name: "webMentionEventsBySlug"
+  fields: ["targetSlug", "createdAt"]
+  queryField: "webMentionEventsBySlug"
+)
+
+{
+  targetId: ID!
+  targetSlug: String!
+  targetName: String!
+    targetType: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  type: WebMentionType!
+  secret: String!
+  source: String!
+  target: String!
+  postType: String!
+  postUrl: AWSURL!
+  authorName: String
+  authorPhoto: String
+  authorUrl: AWSURL
+  published: AWSDateTime!
+  name: String
+}
+
+

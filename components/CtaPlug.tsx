@@ -8,7 +8,7 @@ export interface CtaPlugBlockProps {
 }
 
 export const CtaPlugBlock = (props: CtaPlugBlockProps) => {
-  console.log("CtaPlugBlock", props);
+  // console.log("CtaPlugBlock", props);
   return <Flex key={props.block._key}>CtaPlug</Flex>;
 };
 

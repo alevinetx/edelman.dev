@@ -16,7 +16,7 @@ export const InfoRowsBlock = (props: InfoRowsBlockProps) => {
   const { rows, title, _key } = block;
 
   function renderRow(row: TextWithIllustration) {
-    console.log("row", row);
+    // console.log("row", row);
     const { title, text, illustration } = row;
     return (
       <Flex width={"100%"} direction={"column"}>

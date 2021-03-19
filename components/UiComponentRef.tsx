@@ -8,7 +8,7 @@ export interface UiComponentRefBlockProps {
 }
 
 export const UiComponentRefBlock = (props: UiComponentRefBlockProps) => {
-  console.log("UiComponentRefBlock", props);
+  // console.log("UiComponentRefBlock", props);
   return <Flex key={props.block._key}>UiComponentRef</Flex>;
 };
 

@@ -8,7 +8,7 @@ export interface CtaColumnsBlockProps {
 }
 
 export const CtaColumnsBlock = (props: CtaColumnsBlockProps) => {
-  console.log("CtaColumnsBlock", props);
+  // console.log("CtaColumnsBlock", props);
   return <Flex key={props.block._key}>CtaColumns</Flex>;
 };
 

@@ -341,6 +341,13 @@ export interface Category extends SanityDocument {
   title?: string;
 
   /**
+   * Slug — `slug`
+   *
+   *
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
    * Description — `text`
    *
    *
