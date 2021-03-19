@@ -1,5 +1,5 @@
 import * as React from "react";
-import Head from "next/head";
+// import Head from "next/head";
 import imageUrlBuilder from "@sanity/image-url";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import { useRouter } from "next/router";
@@ -58,7 +58,6 @@ export function SEO(props: SEOProps) {
 
   return (
     <>
-      <Head></Head>
       <ArticleJsonLd
         url={canonical}
         title={title}
