@@ -46,7 +46,9 @@ const HeaderTitleBlock = (props: { title }) => {
     <Flex align="center" mr={8}>
       <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
         <Link href={"/"}>
-          <a> {props.title}</a>
+          <a className={"h-card"} rel={"me"}>
+            {props.title}
+          </a>
         </Link>
       </Heading>
     </Flex>
