@@ -11,6 +11,24 @@ export function Footer(props: FooterProps) {
   return (
     <FooterContainer>
       {" "}
+      <p>
+        Follow{" "}
+        <a className="h-card" rel="me" href="https://edel.monster/">
+          Michael
+        </a>{" "}
+        on{" "}
+        <a href="https://twitter.com/edelman215" rel="me">
+          Twitter (@kmelve)
+        </a>
+        ,{" "}
+        <a href="https://github.com/medelman17" rel="me">
+          GitHub
+        </a>
+        , or send him an{" "}
+        <a className="u-email" href="mailto:michael@fabulas.io" rel="me">
+          email
+        </a>
+      </p>
       <div className="h-card" style={{ display: "none" }}>
         <span className="p-name">Michael Edelman</span>
         <span className="p-honorific-prefix">Mr.</span>
