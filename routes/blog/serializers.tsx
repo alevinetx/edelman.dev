@@ -17,7 +17,7 @@ export const BlockRenderer = (props) => {
           size={"3xl"}
           fontSize={["30px", "30px", "36px", "36px"]}
           mb={[2, 3]}
-          color={["primary.700"]}
+          color={["primary.700", "primary.700", "primary.700", "primary.700"]}
           // lineHeight={1}
         >
           {props.children}
@@ -29,7 +29,7 @@ export const BlockRenderer = (props) => {
           as={"h2"}
           size={"2xl"}
           mb={[2, 3]}
-          color={["primary.700"]}
+          color={["primary.700", "primary.700", "primary.700", "primary.700"]}
           fontSize={["24px", "24px", "30px", "30px"]}
         >
           {props.children}
@@ -41,7 +41,7 @@ export const BlockRenderer = (props) => {
           fontSize={["md", "lg"]}
           mb={[3, 3, 3]}
           lineHeight={["base", "base", "base"]}
-          color={["gray.800"]}
+          color={["gray.700"]}
         >
           {props.children}
         </Text>

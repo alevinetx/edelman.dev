@@ -8,8 +8,9 @@ import simg from "../lib/sanity";
 
 export function SEO(props: SEOProps) {
   const router = useRouter();
+
   const settings = DataHooks.useSiteSettings();
-  const canonical = `${settings.url}${router.pathname}`;
+  const canonical = `${settings.url}${router.asPath}`;
   const title = `${settings.title} | ${props.title}`;
   const ogImages = props.images.map(buildOgImage);
 
@@ -20,6 +21,7 @@ export function SEO(props: SEOProps) {
         title={title}
         images={ogImages.map((i) => i.url)}
         datePublished={props.datePublished}
+        dateModified={props.dateModified}
         authorName={props.pageAuthor}
         description={props.description}
         publisherName={"Michael Edelman"}
@@ -71,6 +73,7 @@ export interface SEOProps {
   tags: Category[];
   pageAuthor: string[];
   datePublished: string;
+  dateModified?: string;
   twitter: {
     site: string;
     cardType: string;

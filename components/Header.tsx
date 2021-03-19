@@ -32,7 +32,7 @@ const MenuItem = ({ children, to = "/", ...rest }) => {
           mr={6}
           letterSpacing={"-.05rem"}
           display="block"
-          color={["white", "white", "primary.700"]}
+          color={["white", "white", "primary.500"]}
         >
           {children}
         </Text>

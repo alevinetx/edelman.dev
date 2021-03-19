@@ -26,7 +26,7 @@ module.exports = {
   },
   webpack: (config, options) => {
     if (!options.isServer) {
-      config.resolve.alias["@sentry/node"] = "@sentry/browser";
+      config.resolve.alias["@sentry/node"] = "@sentry/react";
     }
 
     config.plugins.push(

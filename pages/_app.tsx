@@ -9,6 +9,8 @@ import theme from "../lib/theme";
 import Head from "next/head";
 import awsExports from "../src/aws-exports";
 
+init();
+
 Amplify.configure({ ...awsExports, ssr: true });
 
 Analytics.autoTrack("session", {
@@ -29,8 +31,6 @@ Analytics.autoTrack("event", {
   selectorPrefix: "data-amplify-analytics-",
   provider: "AWSPinpoint",
 });
-
-init();
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { children, ...rest } = pageProps;

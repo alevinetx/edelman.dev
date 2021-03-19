@@ -25,50 +25,6 @@ const SimpleBlockContent = dynamic(
 
 const builder = imageUrlBuilder(simg);
 
-const useBlogPostData = createDataHook("BlogPost", async (context) => {
-  const settings = await sanity.get("site-config", "siteSettings");
-  const [post] = await sanity.getAll(
-    "post",
-    `slug.current == "${context.params.slug}"`
-  );
-  const author = await sanity.expand(post.author);
-
-  let cats: Category[] = [];
-
-  for (const cat of post.categories) {
-    const expCat = await sanity.expand(cat);
-    cats.push(expCat);
-  }
-
-  // console.log("props", settings, post, author, cats);
-
-  const ogImage = {
-    url: builder.image(post.mainImage).width(800).height(600).url(),
-    height: 600,
-    width: 800,
-    alt: post.mainImage.alt || "",
-  };
-
-  const seo = {
-    title: post.title,
-    description:
-      // @ts-ignore
-      post.excerpt.length > 0 ? blockContentToPlainText(post.excerpt) : "",
-    ogImages: [ogImage],
-    canonical: `https://edelman.dev/blog/${post.slug.current}/`,
-    tags: cats.map((cat) => cat.title),
-    publishedAt: post._createdAt,
-    updatedAt: post._updatedAt,
-  };
-
-  return {
-    post,
-    settings,
-    author,
-    seo,
-  };
-});
-
 function getOgTagsForPost(post: any) {
   return {
     type: "article",
@@ -110,6 +66,7 @@ function BlogPost() {
         tags={data.categories}
         pageAuthor={[data.author.name]}
         datePublished={data.post.publishedAt}
+        dateModified={data.post.publishedAt}
         twitter={{
           site: "Michael Edelman",
           handle: "@edelman215",
@@ -133,7 +90,7 @@ function BlogPost() {
             // mx={[0, 0, 0, "-1rem"]}
             mb={[4, 6, 8]}
             mt={[4, 2, 4]}
-            color={["primary.700"]}
+            color={["primary.700", "primary.700", "primary.700", "primary.700"]}
             letterSpacing={"-.1rem"}
           >
             {data.post.title}
