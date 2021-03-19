@@ -39,15 +39,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <html lang="en" />
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width, viewport-fit=cover"
         />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#317EFB" />
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       </Head>
       <NextDataHooksProvider {...rest}>
         <ChakraProvider theme={theme}>
