@@ -15,6 +15,7 @@ const basePath = "";
 
 module.exports = {
   // trailingSlash: true,
+  reactStrictMode: true,
   productionBrowserSourceMaps: true,
   images: {
     domains: ["cdn.sanity.io"],
