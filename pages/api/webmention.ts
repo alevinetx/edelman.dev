@@ -91,6 +91,7 @@ async function handleBlogPostWebMention(event: WebMentionEvent, slug: string) {
     `*[slug.current == "${slug}"]{_id, title, _type}`
   );
   if (!res) throw new Error(`Could not find sanity resource for slug ${slug}`);
+
   const sanityId = res._id as string;
 
   const input: CreateWebMentionEventInput & { targetType: string } = {
