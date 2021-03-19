@@ -11,7 +11,7 @@ export function Footer(props: FooterProps) {
   return (
     <FooterContainer>
       {" "}
-      <div className="h-card">
+      <div className="h-card" style={{ display: "none" }}>
         <span className="p-name">Michael Edelman</span>
         <span className="p-honorific-prefix">Mr.</span>
         <span className="p-given-name">Michael</span>
@@ -41,7 +41,11 @@ export function Footer(props: FooterProps) {
         {/*<div className="p-category">physicist</div>*/}
         {/*<div className="p-note">First American woman in space.</div>*/}
       </div>
-      <a href="https://github.com/medelman17" rel="me">
+      <a
+        href="https://github.com/medelman17"
+        rel="me"
+        style={{ display: "none" }}
+      >
         github.com/medelman17
       </a>
     </FooterContainer>
