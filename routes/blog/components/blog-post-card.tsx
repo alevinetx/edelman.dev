@@ -46,7 +46,7 @@ function BlogPostCard(props: BlogPostCardProps) {
             marginBottom: "1rem",
           }}
         >
-          <Img {...imgProps} />
+          <Img {...imgProps} alt={props.post.mainImage.alt} />
         </div>
         <Stack
           flex={2}
