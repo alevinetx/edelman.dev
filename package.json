@@ -31,6 +31,7 @@
     "framer-motion": "^3.10.5",
     "next": "10.0.7",
     "next-data-hooks": "^0.5.0",
+    "next-pwa": "^5.0.6",
     "next-sanity": "^0.1.10",
     "next-sanity-image": "^1.0.1",
     "next-seo": "^4.20.0",
