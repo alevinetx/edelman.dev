@@ -157,8 +157,8 @@ function HeaderContainer(props) {
         m={" 0 auto"}
         py={3}
         px={[3, 3, 3, 0]}
-        bg={["primary.700", "primary.500", "transparent", "transparent"]}
-        color={["white", "white", "primary.700", "primary.700"]}
+        bg={["primary.500", "primary.500", "transparent", "transparent"]}
+        color={["white", "white", "primary.500", "primary.500"]}
         {...props}
       />
     </Box>
