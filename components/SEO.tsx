@@ -59,7 +59,7 @@ export function SEO(props: SEOProps) {
   return (
     <>
       <Head>
-        <html lang="en" />
+        {/*<html lang="en" />*/}
 
         {/*<meta*/}
         {/*  name="viewport"*/}

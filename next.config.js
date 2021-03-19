@@ -15,7 +15,7 @@ const COMMIT_SHA = process.env.AWS_COMMIT_ID;
 process.env.SENTRY_DSN = SENTRY_DSN;
 const basePath = "";
 
-module.exports = {
+module.exports = withPWA({
   // trailingSlash: true,
   pwa: {
     dest: "public",
@@ -60,4 +60,4 @@ module.exports = {
     }
     return config;
   },
-};
+});
