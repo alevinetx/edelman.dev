@@ -139,6 +139,7 @@ export default async (
   res: NextApiResponse
 ) => {
   try {
+    console.log("Incoming Request", req);
     await runMiddleware(req, res, Sentry.Handlers.requestHandler());
     await runMiddleware(req, res, Sentry.Handlers.tracingHandler());
     await runMiddleware(req, res, cors);
