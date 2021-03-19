@@ -7,11 +7,11 @@ export default class MyDocument extends Document {
         <Head>
           <link
             rel="webmention"
-            href="https://webmention.io/edelman.dev/webmention"
+            href="https://webmention.io/edel.monster/webmention"
           />
           <link
             rel="pingback"
-            href="https://webmention.io/edelman.dev/xmlrpc"
+            href="https://webmention.io/edel.monster/xmlrpc"
           />
         </Head>
         <body>

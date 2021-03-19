@@ -8,7 +8,14 @@ export interface FooterProps {
 }
 
 export function Footer(props: FooterProps) {
-  return <FooterContainer> </FooterContainer>;
+  return (
+    <FooterContainer>
+      {" "}
+      <a href="https://github.com/medelman17" rel="me">
+        github.com/medelman17
+      </a>
+    </FooterContainer>
+  );
 }
 
 function FooterContainer(props) {
