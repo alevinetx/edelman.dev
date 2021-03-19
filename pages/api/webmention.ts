@@ -146,8 +146,8 @@ export default async (
 
     await persistEvent(req, res);
 
-    res.status(202).json({ result: "Webmention was successful" });
-    await Sentry.flush(2000);
+    return res.json({ result: "Webmention was successful" });
+    // await Sentry.flush(2000);
   } catch (err) {
     Sentry.captureException(err);
     await Sentry.flush(2000);
