@@ -147,6 +147,7 @@ export default async (
     await persistEvent(req, res);
 
     res.status(200).send("OK");
+    await Sentry.flush(2000);
   } catch (err) {
     Sentry.captureException(err);
     await Sentry.flush(2000);
