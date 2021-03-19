@@ -13,16 +13,13 @@ export function Content(props: ContentProps) {
 function ContentContainer(props) {
   return (
     <Flex
-      paddingY={[3]}
       as={"main"}
-      direction={"column"}
-      style={{
-        maxWidth: "800px",
-        alignSelf: "center",
-
-        width: "100%",
-      }}
-      paddingX={[1, 3]}
+      align="flex-start"
+      justify="space-between"
+      wrap="wrap"
+      w="100%"
+      p={3}
+      flexGrow={2}
     >
       {props.children}
     </Flex>

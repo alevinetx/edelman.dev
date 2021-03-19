@@ -1,5 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { getDataHooksProps } from "next-data-hooks";
+import * as Sentry from "@sentry/react";
 
 import Page from "../routes/main/components/page";
 import sanity from "../lib/sanity-client";
@@ -18,11 +19,11 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const dataHookProps = await getDataHooksProps({
+  const dataHooksProps = await getDataHooksProps({
     context,
     dataHooks: Page.dataHooks,
   });
-  return { props: dataHookProps, revalidate: 1 };
+  return { props: dataHooksProps, revalidate: 1 };
 };
 
-export default Page;
+export default Sentry.withProfiler(Page);

@@ -8,12 +8,22 @@ export interface FooterProps {
 }
 
 export function Footer(props: FooterProps) {
-  return <FooterContainer></FooterContainer>;
+  return <FooterContainer> </FooterContainer>;
 }
 
 function FooterContainer(props) {
   return (
-    <Flex as={"footer"} direction={"row"} justify={"space-between"}>
+    <Flex
+      as={"footer"}
+      align="center"
+      justify="space-between"
+      wrap="wrap"
+      w="100%"
+      p={3}
+      bg={["gray.500", "gray.500", "transparent", "transparent"]}
+      color={["white", "white", "primary.700", "primary.700"]}
+      {...props}
+    >
       {props.children}
     </Flex>
   );

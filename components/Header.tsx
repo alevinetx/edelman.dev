@@ -4,20 +4,34 @@ import { SiteConfig, NavigationMenu, Route } from "../lib/schema";
 import { CloseIcon as CI, MenuIcon as OI } from "./Icons";
 import { blockContentToPlainText } from "react-portable-text";
 import type { SanityKeyedReference } from "sanity-codegen";
+import { GlobalNavMenuItem } from "../hooks";
 import Link from "next/link";
 
 export interface HeaderProps {
-  navItems: SiteConfig["mainNavigation"];
+  navItems: GlobalNavMenuItem[];
   toggleMobileNavigationMenu: (e: React.SyntheticEvent) => void;
   doShowMobileNavigationMenu: boolean;
   titleText: string;
 }
 
+function getDataAttributes(props: { text: string; url: string }) {
+  return {
+    "data-amplify-analytics-touchable-type": "Link",
+    "data-amplify-analytics-touchable-function": "GlobalNavigation",
+    "data-amplify-analytics-touchable-text": props.text,
+    "data-amplify-analytics-touchable-url": props.url,
+  };
+}
+
 const MenuItem = ({ children, to = "/", ...rest }) => {
   return (
-    <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
-      {children}
-    </Text>
+    <Link href={to}>
+      <a {...getDataAttributes({ text: children, url: to })}>
+        <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
+          {children}
+        </Text>
+      </a>
+    </Link>
   );
 };
 
@@ -49,14 +63,18 @@ const HeaderNavigationMenuToggle = (props: {
 
 const HeaderNavigationMenuItemList = (props: {
   isMobile: boolean;
-  navItems: SiteConfig["mainNavigation"];
+  navItems: GlobalNavMenuItem[];
 }) => {
   function renderMenuItem(
-    item: SanityKeyedReference<Route>,
+    item: GlobalNavMenuItem,
     index: number,
-    list: SiteConfig["mainNavigation"]
+    list: GlobalNavMenuItem[]
   ) {
-    return <MenuItem key={item._key}>{`Test Item ${index + 1}`}</MenuItem>;
+    return (
+      <MenuItem key={item._id} to={`/${item.slug.current}`}>
+        {item.pageTitle}
+      </MenuItem>
+    );
   }
 
   return (
@@ -76,7 +94,7 @@ const HeaderNavigationMenuItemList = (props: {
 
 const HeaderNavigationBlock = (props: {
   doShowMobileNavigation: boolean;
-  navItems: SiteConfig["mainNavigation"];
+  navItems: GlobalNavMenuItem[];
   toggleMobileNavigationMenu: (e: React.SyntheticEvent) => void;
 }) => {
   const {
@@ -128,10 +146,10 @@ function HeaderContainer(props) {
       justify="space-between"
       wrap="wrap"
       w="100%"
-      mb={8}
+      // mb={8}
       p={3}
       bg={["primary.500", "primary.500", "transparent", "transparent"]}
-      color={["white", "white", "primary.700", "primary.700"]}
+      color={["white", "white", "gray.700", "gray.700"]}
       {...props}
     />
   );

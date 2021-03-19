@@ -1,8 +1,9 @@
 import BlockContent from "@sanity/block-content-to-react";
-import { Heading, Text } from "@chakra-ui/react";
+import { Heading, Text, Box } from "@chakra-ui/react";
 // import { Code } from "../../components/Code";
 // import { Figure } from "../../components/Figure";
 import dynamic from "next/dynamic";
+import * as React from "react";
 
 const Code = dynamic(() => import("../../components/Code"));
 const Figure = dynamic(() => import("../../components/Figure"));
@@ -11,20 +12,32 @@ export const BlockRenderer = (props) => {
   switch (props.node.style) {
     case "h1":
       return (
-        <Heading as={"h1"} size={"xl"}>
+        <Heading
+          as={"h1"}
+          size={"3xl"}
+          mb={4}
+          color={["primary.800"]}
+          lineHeight={1.25}
+        >
           {props.children}
         </Heading>
       );
     case "h2":
       return (
-        <Heading as={"h2"} size={"lg"}>
+        <Heading
+          as={"h2"}
+          size={"2xl"}
+          mb={4}
+          color={["primary.800"]}
+          lineHeight={1.25}
+        >
           {props.children}
         </Heading>
       );
     case "normal":
       return (
-        <Text size={"lg"}>
-          <p>{props.children}</p>
+        <Text fontSize="2xl" mb={6} lineHeight={"tall"}>
+          {props.children}
         </Text>
       );
     default:
@@ -33,10 +46,25 @@ export const BlockRenderer = (props) => {
 };
 
 const highlight = (props) => {
-  return <span style={{ backgroundColor: "yellow" }}>{props.children}</span>;
+  return <Text as={"mark"}>{props.children}</Text>;
+};
+
+const Img = (props) => {
+  return (
+    <Box
+      mt={8}
+      mb={8}
+      mx={[0, 0, "-1rem"]}
+      boxShadow={
+        "rgb(0 0 0 / 20%) 0px 1px 5px 0px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 3px 1px -2px"
+      }
+    >
+      <Figure node={props.node} />
+    </Box>
+  );
 };
 
 export const serializers = {
-  types: { block: BlockRenderer, code: Code, mainImage: Figure },
+  types: { block: BlockRenderer, code: Code, mainImage: Img },
   marks: { highlight },
 };

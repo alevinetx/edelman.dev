@@ -1,21 +1,23 @@
 import { createDataHook } from "next-data-hooks";
 import sanity from "../../../lib/sanity-client";
 
-const useBlogIndexData = createDataHook("BlogIndex", async (context) => {
-  const allPosts = await sanity.getAll("post");
-
-  return {
-    msg: "hi",
-    posts: allPosts,
-  };
-});
+import {
+  useGlobalNavigation,
+  useSiteSettings,
+} from "../../../hooks/siteSettings";
+import * as DataHooks from "../../../hooks";
 
 function BlogIndex() {
-  const { posts } = useBlogIndexData();
+  const posts = DataHooks.useBlogPosts();
 
-  return <div>hmm</div>;
+  return <div>hmm blogs</div>;
 }
 
-BlogIndex.dataHooks = [useBlogIndexData];
+BlogIndex.dataHooks = [
+  DataHooks.useBlogPosts,
+  DataHooks.useGlobalNavigation,
+  DataHooks.useSiteSettings,
+  DataHooks.usePageData,
+];
 
 export default BlogIndex;

@@ -1,14 +1,33 @@
-import type { AppProps, AppContext } from "next/app";
-import sanity from "../lib/sanity-client";
-import { ChakraProvider } from "@chakra-ui/react";
-import Amplify, { Analytics } from "aws-amplify";
-import awsExports from "../src/aws-exports";
-import { useEffect } from "react";
-import { NextDataHooksProvider } from "next-data-hooks";
+import * as React from "react";
 import "../styles/globals.css";
+import type { AppProps, AppContext } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+// import Amplify, { Analytics } from "aws-amplify";
+import { NextDataHooksProvider } from "next-data-hooks";
 import { init } from "../lib/sentry";
 import theme from "../lib/theme";
+import awsExports from "../src/aws-exports";
+
 // Amplify.configure({ ...awsExports, ssr: true });
+
+// Analytics.autoTrack("session", {
+//   enable: process.env.NODE_ENV === "production",
+//   provider: "AWSPinpoint",
+// });
+//
+// Analytics.autoTrack("pageView", {
+//   enable: process.env.NODE_ENV === "production",
+//   event: "pageView",
+//   type: "multiPageApp",
+//   provider: "AWSPinpoint",
+// });
+//
+// Analytics.autoTrack("event", {
+//   enable: process.env.NODE_ENV === "production",
+//   events: ["click"],
+//   selectorPrefix: "data-amplify-analytics-",
+//   provider: "AWSPinpoint",
+// });
 
 init();
 

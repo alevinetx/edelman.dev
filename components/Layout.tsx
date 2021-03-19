@@ -1,17 +1,28 @@
 import * as React from "react";
-import { SiteConfig, NavigationMenu } from "../lib/schema";
-import { Heading, Link, Flex } from "@chakra-ui/react";
+import { SiteConfig } from "../lib/schema";
+import { Flex } from "@chakra-ui/react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Content } from "./Content";
-import Head from "next/head";
+import { useGlobalNavigation, useSiteSettings } from "../hooks/siteSettings";
 
 export interface LayoutProps {
-  config: SiteConfig;
+  config?: SiteConfig;
   children: React.ReactNode;
+  headerTitle?: string;
+}
+
+function getHeaderTitle(site: string, page?: string) {
+  if (page) {
+    return `${site}`;
+  }
+  return site;
 }
 
 export function Layout(props: LayoutProps) {
+  const globalNavigation = useGlobalNavigation();
+  const settings = useSiteSettings();
+
   const [doShowMobileNavigationMenu, setMobileNavigationMenu] = React.useState(
     false
   );
@@ -22,25 +33,18 @@ export function Layout(props: LayoutProps) {
 
   return (
     <>
-      <Head>
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width, viewport-fit=cover"
-        />
-      </Head>
-
       <SiteContainer>
         <Header
-          navItems={props.config.mainNavigation}
+          navItems={globalNavigation}
           doShowMobileNavigationMenu={doShowMobileNavigationMenu}
           toggleMobileNavigationMenu={toggleMobileNavigationMenu}
-          titleText={props.config.title}
+          titleText={getHeaderTitle(settings.title, props.headerTitle)}
         />
         <Content>{props.children}</Content>
 
         <Footer
-          navItems={props.config.footerNavigation}
-          text={props.config.footerText}
+          navItems={settings.footerNavigation}
+          text={settings.footerText}
         />
       </SiteContainer>
     </>
@@ -52,8 +56,8 @@ function SiteContainer(props) {
     <Flex
       direction="column"
       align="center"
-      maxW={{ xl: "1200px" }}
       m="0 auto"
+      minHeight={"100vh"}
       {...props}
     >
       {props.children}

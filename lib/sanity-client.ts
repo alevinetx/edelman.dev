@@ -1,6 +1,7 @@
 import { createClient } from "sanity-codegen";
 import { Documents } from "./schema";
 import fetch from "node-fetch";
+
 export default createClient<Documents>({
   // Note: these are useful to pull from environment variables
   // (required) your sanity project id

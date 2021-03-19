@@ -27,7 +27,7 @@
     "@sentry/node": "^6.2.2",
     "@sentry/react": "^6.2.2",
     "@sentry/tracing": "^6.2.2",
-    "aws-amplify": "^3.3.24",
+    "aws-amplify": "^3.3.25",
     "framer-motion": "^3.10.5",
     "next": "10.0.7",
     "next-data-hooks": "^0.5.0",
