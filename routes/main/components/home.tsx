@@ -44,15 +44,22 @@ function Home(props) {
         >
           <Heading
             as={"h1"}
-            size={"3xl"}
+            size={"4xl"}
+            fontSize={["36px", "36px", "60px", "60px"]}
             mt={[4, 4, 8]}
-            mb={[4, 4, 8]}
+            mb={[4, 6, 6]}
             letterSpacing={"-.1rem"}
+            color={["primary.700"]}
           >
             Home
           </Heading>
-          <Text fontSize="lg" mb={[4, 4, 8]}>
-            que accumsan lectus, nec dignissim est interdum at. Quisque rhoncus
+          <Text
+            fontSize={["md", "lg"]}
+            mb={[2, 6, 8]}
+            lineHeight={["base", "tall"]}
+            color={["gray.800"]}
+          >
+            Que accumsan lectus, nec dignissim est interdum at. Quisque rhoncus
             nulla lacinia imperdiet consectetur. Quisque gravida lacus a orci
             maximus ornare vel a risus. Nunc id ex neque. Nulla quis turpis
             tellus. Sed posuere blandit eros, vita
@@ -60,18 +67,27 @@ function Home(props) {
           <Stack space={[4]}>
             <Heading
               as={"h2"}
-              size={"2xl"}
+              size={"xl"}
               pb={2}
-              mb={4}
+              mb={[4, 4, 6]}
               borderBottom={"1px solid black"}
               borderBottomColor={"gray.300"}
-              letterSpacing={"-.1rem"}
+              letterSpacing={"-.05rem"}
+              color={["primary.700"]}
+              fontSize={["24px", "24px", "30px", "30px"]}
             >
               Recent Posts
             </Heading>
-            {posts.map((post) => (
-              <BlogPostCard post={post} key={post._id} />
-            ))}
+            <Flex
+              justifyContent={"space-between"}
+              wrap={"wrap"}
+              flex={1}
+              width={"100%"}
+            >
+              {posts.map((post) => (
+                <BlogPostCard post={post} key={post._id} />
+              ))}
+            </Flex>
           </Stack>
         </Flex>
         <div></div>

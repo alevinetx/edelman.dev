@@ -1,12 +1,49 @@
 import * as React from "react";
-// import Head from "next/head";
 import imageUrlBuilder from "@sanity/image-url";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import { useRouter } from "next/router";
+import { Category, MainImage } from "../lib/schema";
+import * as DataHooks from "../hooks";
 import simg from "../lib/sanity";
 
-import * as DataHooks from "../hooks";
-import { Category, MainImage, SanityImage } from "../lib/schema";
+export function SEO(props: SEOProps) {
+  const router = useRouter();
+  const settings = DataHooks.useSiteSettings();
+  const canonical = `${settings.url}${router.pathname}`;
+  const title = `${settings.title} | ${props.title}`;
+  const ogImages = props.images.map(buildOgImage);
+
+  return (
+    <>
+      <ArticleJsonLd
+        url={canonical}
+        title={title}
+        images={ogImages.map((i) => i.url)}
+        datePublished={props.datePublished}
+        authorName={props.pageAuthor}
+        description={props.description}
+        publisherName={"Michael Edelman"}
+        publisherLogo={builder.image(settings.logo).url()}
+        {...props.jsonLD}
+      />
+      <NextSeo
+        title={title}
+        description={props.description}
+        canonical={canonical}
+        twitter={props.twitter}
+        openGraph={{
+          url: canonical,
+          title: title,
+          site_name: settings.title,
+          type: props.og.type,
+          images: ogImages,
+          ...props.og,
+        }}
+        {...props.seo}
+      />
+    </>
+  );
+}
 
 export const builder = imageUrlBuilder(simg);
 
@@ -46,44 +83,4 @@ export interface SEOProps {
   };
   jsonLD?: { [index: string]: any };
   seo?: { [index: string]: any };
-}
-
-export function SEO(props: SEOProps) {
-  const router = useRouter();
-  const settings = DataHooks.useSiteSettings();
-
-  const canonical = `${settings.url}${router.pathname}`;
-  const title = `${settings.title} | ${props.title}`;
-  const ogImages = props.images.map(buildOgImage);
-
-  return (
-    <>
-      <ArticleJsonLd
-        url={canonical}
-        title={title}
-        images={ogImages.map((i) => i.url)}
-        datePublished={props.datePublished}
-        authorName={props.pageAuthor}
-        description={props.description}
-        publisherName={"Michael Edelman"}
-        publisherLogo={builder.image(settings.logo).url()}
-        {...props.jsonLD}
-      />
-      <NextSeo
-        title={title}
-        description={props.description}
-        canonical={canonical}
-        twitter={props.twitter}
-        openGraph={{
-          url: canonical,
-          title: title,
-          site_name: settings.title,
-          type: props.og.type,
-          images: ogImages,
-          ...props.og,
-        }}
-        {...props.seo}
-      />
-    </>
-  );
 }

@@ -27,7 +27,13 @@ const MenuItem = ({ children, to = "/", ...rest }) => {
   return (
     <Link href={to}>
       <a {...getDataAttributes({ text: children, url: to })}>
-        <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
+        <Text
+          mt={{ base: 4, md: 0 }}
+          mr={6}
+          letterSpacing={"-.05rem"}
+          display="block"
+          color={["white", "white", "primary.700"]}
+        >
           {children}
         </Text>
       </a>
@@ -37,7 +43,7 @@ const MenuItem = ({ children, to = "/", ...rest }) => {
 
 const HeaderTitleBlock = (props: { title }) => {
   return (
-    <Flex align="center" mr={5}>
+    <Flex align="center" mr={8}>
       <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
         <Link href={"/"}>
           <a> {props.title}</a>
@@ -140,17 +146,21 @@ export function Header(props: HeaderProps) {
 
 function HeaderContainer(props) {
   return (
-    <Flex
-      as="nav"
-      align="center"
-      justify="space-between"
-      wrap="wrap"
-      w="100%"
-      // mb={8}
-      p={3}
-      bg={["primary.500", "primary.500", "transparent", "transparent"]}
-      color={["white", "white", "gray.700", "gray.700"]}
-      {...props}
-    />
+    <Box w="100%">
+      <Flex
+        as="nav"
+        align="center"
+        justify="space-between"
+        wrap="wrap"
+        w="100%"
+        maxW={{ lg: "800px" }}
+        m={" 0 auto"}
+        py={3}
+        px={[3, 3, 3, 0]}
+        bg={["primary.700", "primary.500", "transparent", "transparent"]}
+        color={["white", "white", "primary.700", "primary.700"]}
+        {...props}
+      />
+    </Box>
   );
 }

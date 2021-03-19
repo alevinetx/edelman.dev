@@ -27,7 +27,7 @@ export default {
       type: "array",
       title: "Page sections",
       of: [
-        { type: "pricing" },
+        // { type: "pricing" },
         { type: "uiComponentRef" },
         { type: "hero" },
         { type: "infoRows" },

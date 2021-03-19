@@ -129,10 +129,11 @@ function BlogPost() {
           <Heading
             as={"h1"}
             size={"4xl"}
-            mx={[0, 0, 0, "-1rem"]}
+            fontSize={["36px", "36px", "60px", "60px"]}
+            // mx={[0, 0, 0, "-1rem"]}
             mb={[4, 6, 8]}
             mt={[4, 2, 4]}
-            color={["primary.800"]}
+            color={["primary.700"]}
             letterSpacing={"-.1rem"}
           >
             {data.post.title}

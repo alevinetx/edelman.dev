@@ -298,7 +298,6 @@ export interface Page extends SanityDocument {
    *
    */
   content?: Array<
-    | SanityKeyed<Pricing>
     | SanityKeyed<UiComponentRef>
     | SanityKeyed<Hero>
     | SanityKeyed<InfoRows>

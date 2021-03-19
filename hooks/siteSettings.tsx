@@ -1,21 +1,13 @@
 import { createDataHook } from "next-data-hooks";
 import { Route, Post } from "../lib/schema";
 import sanity from "../lib/sanity-client";
-import { useRouter } from "next/router";
 
 export const useSiteSettings = createDataHook(
   "SiteSettings",
   async (context) => {
-    const siteSettings = await sanity.get("site-config", "siteSettings");
-    return siteSettings;
+    return await sanity.get("site-config", "siteSettings");
   }
 );
-
-export type GlobalNavMenuItem = Route & {
-  _type: "route";
-  pageTitle: string;
-  pageId: string;
-};
 
 export const useGlobalNavigation = createDataHook(
   "GlobalNavigation",
@@ -25,7 +17,6 @@ export const useGlobalNavigation = createDataHook(
     for (const ref of settings.mainNavigation) {
       const result = await sanity.expand(ref);
       const page = await sanity.expand(result.page);
-
       results.push({ ...result, pageTitle: page.title, pageId: page._id });
     }
 
@@ -50,8 +41,7 @@ export const usePageData = createDataHook("PageData", async (context) => {
 });
 
 export const useBlogPosts = createDataHook("BlogPosts", async (context) => {
-  const posts = await sanity.getAll("post");
-  return posts;
+  return await sanity.getAll("post");
 });
 
 export const useBlogPost = createDataHook("BlogPost", async (context) => {
@@ -65,7 +55,6 @@ export const useBlogPost = createDataHook("BlogPost", async (context) => {
   }
 
   const author = await sanity.expand(post.author);
-
   const categories = await sanity.getAll(
     "category",
     `references("${post._id}")`
@@ -77,3 +66,9 @@ export const useBlogPost = createDataHook("BlogPost", async (context) => {
     categories,
   };
 });
+
+export type GlobalNavMenuItem = Route & {
+  _type: "route";
+  pageTitle: string;
+  pageId: string;
+};

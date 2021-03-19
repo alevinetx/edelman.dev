@@ -15,9 +15,10 @@ export const BlockRenderer = (props) => {
         <Heading
           as={"h1"}
           size={"3xl"}
-          mb={4}
-          color={["primary.800"]}
-          lineHeight={1.25}
+          fontSize={["30px", "30px", "36px", "36px"]}
+          mb={[2, 3]}
+          color={["primary.700"]}
+          // lineHeight={1}
         >
           {props.children}
         </Heading>
@@ -27,16 +28,21 @@ export const BlockRenderer = (props) => {
         <Heading
           as={"h2"}
           size={"2xl"}
-          mb={4}
-          color={["primary.800"]}
-          lineHeight={1.25}
+          mb={[2, 3]}
+          color={["primary.700"]}
+          fontSize={["24px", "24px", "30px", "30px"]}
         >
           {props.children}
         </Heading>
       );
     case "normal":
       return (
-        <Text fontSize="2xl" mb={6} lineHeight={"tall"}>
+        <Text
+          fontSize={["md", "lg"]}
+          mb={[3, 3, 3]}
+          lineHeight={["base", "base", "base"]}
+          color={["gray.800"]}
+        >
           {props.children}
         </Text>
       );

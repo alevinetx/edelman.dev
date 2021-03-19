@@ -30,6 +30,9 @@ function BlogPostCard(props: BlogPostCardProps) {
       flex={1}
       width={"100%"}
       borderRadius={"base"}
+      mr={[0, 0, 3]}
+      my={[2, 2, 0]}
+      // maxW={"400px"}
       boxShadow={
         "rgb(0 0 0 / 20%) 0px 1px 5px 0px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 3px 1px -2px"
       }
@@ -53,12 +56,25 @@ function BlogPostCard(props: BlogPostCardProps) {
         >
           <Link href={`/blog/${props.post.slug.current}`}>
             <a>
-              <Heading as={"h1"} size="xl" letterSpacing={"-.1rem"}>
+              <Heading
+                as={"h1"}
+                size="xl"
+                letterSpacing={"-.05rem"}
+                color={["primary.700"]}
+                fontSize={["24px", "24px", "30px", "30px"]}
+              >
                 {props.post.title}
               </Heading>
             </a>
           </Link>
-          <Text fontSize="lg">{getExcerpt()}</Text>
+          <Text
+            fontSize={["md", "lg"]}
+            mb={[2, 3]}
+            lineHeight={["base", "sm"]}
+            color={["gray.800"]}
+          >
+            {getExcerpt()}
+          </Text>
         </Stack>
       </Flex>
     </Card>
