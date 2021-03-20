@@ -46,6 +46,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <link
+          rel="webmention"
+          href="https://webmention.io/edel.monster/webmention"
+        />
+        <link rel="pingback" href="https://webmention.io/edel.monster/xmlrpc" />
       </Head>
       <NextDataHooksProvider {...rest}>
         <ChakraProvider theme={theme}>
