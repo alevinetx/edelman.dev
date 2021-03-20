@@ -3,18 +3,22 @@ import Amplify, { API, graphqlOperation } from "aws-amplify";
 import * as mutations from "../../src/graphql/mutations";
 import sanity from "../../lib/sanity-client";
 import Cors from "cors";
-import * as Sentry from "@sentry/node";
+import * as Sentry from "@sentry/serverless";
 
 import cfg from "../../src/aws-exports";
 import { WebMentionType, CreateWebMentionEventInput } from "../../src/API";
 
 Sentry.init({
-  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  dsn:
+    process.env.NEXT_PUBLIC_SENTRY_DSN ||
+    "https://8031f4ed520b427088aec6d7ca3e8545@o553757.ingest.sentry.io/5681482",
   // enabled: process.env.NODE_ENV !== "development",
   enabled: true,
   release: process.env.NEXT_PUBLIC_COMMIT_SHA,
   tracesSampleRate: 1.0,
   integrations: [new Sentry.Integrations.Http({ tracing: true })],
+  debug: true,
+  attachStacktrace: true,
 });
 
 Amplify.configure(cfg);
@@ -57,6 +61,7 @@ function runMiddleware(
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
       if (result instanceof Error) {
+        Sentry.captureException(result);
         return reject(result);
       }
 
@@ -85,33 +90,38 @@ function getWebMentionType(t: WebMentionProperty): WebMentionType {
 }
 
 async function handleBlogPostWebMention(event: WebMentionEvent, slug: string) {
-  const [res] = await sanity.query(
-    `*[slug.current == "${slug}"]{_id, title, _type}`
-  );
-  if (!res) throw new Error(`Could not find sanity resource for slug ${slug}`);
+  try {
+    const [res] = await sanity.query(
+      `*[slug.current == "${slug}"]{_id, title, _type}`
+    );
+    if (!res)
+      throw new Error(`Could not find sanity resource for slug ${slug}`);
 
-  const sanityId = res._id as string;
+    const sanityId = res._id as string;
 
-  const input: CreateWebMentionEventInput & { targetType: string } = {
-    targetId: sanityId,
-    targetName: res.title,
-    targetSlug: slug,
-    targetType: res._type,
-    type: getWebMentionType(event.post["wm-property"]),
-    secret: event.secret,
-    source: event.source,
-    target: event.target,
-    postType: event.post.type,
-    postUrl: event.post.url,
-    authorName: event.post.author.name,
-    authorPhoto: event.post.author.photo,
-    authorUrl: event.post.author.url,
-    published: event.post.published,
-    name: event.post.name,
-  };
-  await API.graphql(
-    graphqlOperation(mutations.createWebMentionEvent, { input })
-  );
+    const input: CreateWebMentionEventInput & { targetType: string } = {
+      targetId: sanityId,
+      targetName: res.title,
+      targetSlug: slug,
+      targetType: res._type,
+      type: getWebMentionType(event.post["wm-property"]),
+      secret: event.secret,
+      source: event.source,
+      target: event.target,
+      postType: event.post.type,
+      postUrl: event.post.url,
+      authorName: event.post.author.name,
+      authorPhoto: event.post.author.photo,
+      authorUrl: event.post.author.url,
+      published: event.post.published,
+      name: event.post.name,
+    };
+    await API.graphql(
+      graphqlOperation(mutations.createWebMentionEvent, { input })
+    );
+  } catch (err) {
+    Sentry.captureException(err);
+  }
 }
 
 async function persistEvent(
@@ -128,7 +138,9 @@ async function persistEvent(
     .split("/");
 
   if (pathnameParts[0] === "blog") {
-    await handleBlogPostWebMention(body, pathnameParts[1]);
+    return await handleBlogPostWebMention(body, pathnameParts[1]);
+  } else {
+    return Promise.resolve();
   }
 }
 
@@ -144,11 +156,18 @@ export default async (
 
     await persistEvent(req, res);
 
-    return res.json({ result: "Webmention was successful" });
-    // await Sentry.flush(2000);
+    await Sentry.captureMessage("This is working!");
+    await Sentry.flush();
+
+    res.json({
+      result: "Webmention was successful",
+      env: process.env.NODE_ENV,
+      dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+    });
   } catch (err) {
+    console.log(err);
     Sentry.captureException(err);
-    await Sentry.flush(2000);
+    await Sentry.flush();
     throw err;
   }
 };
