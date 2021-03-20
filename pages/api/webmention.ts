@@ -120,7 +120,7 @@ async function handleBlogPostWebMention(event: WebMentionEvent, slug: string) {
       graphqlOperation(mutations.createWebMentionEvent, { input })
     );
   } catch (err) {
-    Sentry.captureException(err);
+    Sentry.captureException(JSON.stringify(err));
   }
 }
 
@@ -149,21 +149,22 @@ export default async (
   res: NextApiResponse
 ) => {
   try {
-    console.log("Incoming Request", req);
+    // console.log("Incoming Request", req);
     await runMiddleware(req, res, Sentry.Handlers.requestHandler());
     await runMiddleware(req, res, Sentry.Handlers.tracingHandler());
     await runMiddleware(req, res, cors);
 
     await persistEvent(req, res);
 
-    await Sentry.captureMessage("This is working!");
-    await Sentry.flush();
+    // await Sentry.captureMessage("This is working!");
+    // await Sentry.flush();
 
     res.json({
       result: "Webmention was successful",
       env: process.env.NODE_ENV,
       dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
     });
+    await Sentry.close();
   } catch (err) {
     console.log(err);
     Sentry.captureException(err);
