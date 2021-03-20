@@ -29,6 +29,10 @@
         "edelmandevwebmentionhook": {
           "deploymentBucketName": "amplify-edelmandev-dev-142019-deployment",
           "s3Key": "amplify-builds/edelmandevwebmentionhook-4c706b6c3355512f666d-build.zip"
+        },
+        "edelmanwmwebhook": {
+          "deploymentBucketName": "amplify-edelmandev-dev-142019-deployment",
+          "s3Key": "amplify-builds/edelmanwmwebhook-576b4a2b55557857476e-build.zip"
         }
       }
     }
