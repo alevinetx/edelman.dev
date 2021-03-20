@@ -47,9 +47,7 @@ export type WebMentionEvent = {
 
 type NextApiRequestWithWebMentionEvent = NextApiRequest & WebMentionEvent;
 
-const cors = Cors({
-  methods: ["POST"],
-});
+const cors = Cors();
 
 function runMiddleware(
   req: NextApiRequestWithWebMentionEvent,
